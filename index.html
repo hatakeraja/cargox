@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cargox - Fast & Reliable Delivery</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+</head>
+<body>
+
+ <!-- Header Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
+  <div class="container d-flex align-items-center justify-content-between">
+    
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="logo.png" alt="Cargox Logo" height="50" class="me-2">
+      <span class="fw-bold text-warning">Cargox</span>
+    </a>
+
+    <!-- Login Icon (outside toggler) -->
+    <a class="nav-link d-lg-none me-2" href="login.html">
+      <i class="fas fa-user fs-5"></i>
+    </a>
+
+    <!-- Navbar Toggler -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar Links -->
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+      </ul>
+
+      <!-- Login Icon (outside collapsible menu) -->
+      <ul class="navbar-nav ms-auto d-none d-lg-flex">
+        <li class="nav-item">
+          <a class="nav-link" href="login.html">
+            <i class="fas fa-user fs-5"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Carousel Banner -->
+  <div id="mainBanner" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <a><img src="https://img.freepik.com/premium-vector/mega-sale-discount-banner-set-promotion-with-yellow-background_497837-702.jpg" class="d-block w-100 bann" alt="Banner 1"></a>
+      </div>
+      <div class="carousel-item">
+        <a><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnM_gqZnaSfRH4d7tKST4jVAncJLi80eJGkuPpTdclderVaDyaMe8v8dyJ&s=10" class="d-block w-100 bann" alt="Banner 2"></a>
+      </div>
+      <div class="carousel-item">
+        <a><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy7oDTm9XGrsE_l38Z_pfG16aGgZCw_VppfQ&usqp=CAU" class="d-block w-100 bann" alt="Banner 3"></a>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#mainBanner" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#mainBanner" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+  <!-- Category Icons -->
+  <div class="container mt-4">
+    <h4 class="mb-3">Shop by Category</h4>
+    <div class="d-flex flex-wrap gap-4 justify-content-start" id="category-list">
+      <div class="text-center category-item" data-category="all">
+        <img src="fashion.png" class="cat-icon" alt="Fashion">
+        <p>Fashion</p>
+      </div>
+      <div class="text-center category-item" data-category="mobile">
+        <img src="express.png" class="cat-icon" alt="Express">
+        <p>Mobiles</p>
+      </div>
+      <div class="text-center category-item" data-category="gadget">
+        <img src="standard.png" class="cat-icon" alt="Standard">
+        <p>Gadgets</p>
+      </div>
+      <div class="text-center category-item" data-category="appliances">
+        <img src="bulk.png" class="cat-icon" alt="Bulk">
+        <p>Appliances</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search with Suggestions -->
+  <div class="container mt-5 mb-4 position-relative">
+    <div class="input-group">
+      <input type="text" id="search-input" class="form-control" placeholder="Search products...">
+      <button class="btn btn-warning" id="search-btn"><i class="fas fa-search"></i></button>
+    </div>
+    <ul id="suggestions" class="list-group position-absolute w-100" style="z-index: 10;"></ul>
+  </div>
+
+ <!-- Product List -->
+<div class="container mb-5">
+  <div id="product-list" class="row"></div>
+</div>
+<!-- Contact Section -->
+<section id="contact" class="bg-light py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Contact Us</h2>
+    
+    <form class="mb-4">
+      <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" placeholder="Your Name">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" placeholder="you@example.com">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Message</label>
+        <textarea class="form-control" rows="4" placeholder="Your Message"></textarea>
+      </div>
+      <button type="submit" class="btn btn-warning">Send Message</button>
+    </form>
+
+    <!-- Social Icons -->
+    <div class="text-center">
+      <a href="https://instagram.com/yourprofile" target="_blank" class="me-3 text-dark fs-4"><i class="fab fa-instagram"></i></a>
+      <a href="https://facebook.com/yourprofile" target="_blank" class="me-3 text-dark fs-4"><i class="fab fa-facebook"></i></a>
+      <a href="https://twitter.com/yourprofile" target="_blank" class="text-dark fs-4"><i class="fab fa-twitter"></i></a>
+    </div>
+  </div>
+</section>
+  <!-- Footer -->
+  <footer class="bg-dark text-light py-3 text-center">
+    <p class="mb-0">&copy; 2025 Cargox. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="products.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Back to Top Button -->
+<a href="#" id="backToTop" class="btn btn-warning shadow position-fixed" style="bottom: 20px; left: 50%; transform: translateX(-50%); display: none;">
+  ↑
+</a>
+  <script>
+  const backToTopBtn = document.getElementById("backToTop");
+
+  window.addEventListener("scroll", () => {
+    backToTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
+  });
+</script>
+    <a href="cart.html" class="btn btn-warning shadow position-fixed" style="bottom: 20px; right: 20px;">
+  <i class="fas fa-shopping-cart"></i>
+</a>
+</body>
+</html>

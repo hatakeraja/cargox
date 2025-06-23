@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart - Cargox</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">
+      <img src="logo.png" alt="Cargox" width="30" class="me-2"> Cargox
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMain">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html#categories">Categories</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="account.html"><i class="bi bi-person-circle"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <div class="container mt-4">
+    <h2 class="mb-4">🛒 Your Cart</h2>
+    <div id="cart-items" class="row"></div>
+
+    <div class="mt-4 text-end">
+      <h4>Total: ₹<span id="grand-total">0</span></h4>
+      <button class="btn btn-success mt-2">Checkout</button>
+    </div>
+  </div>
+
+  <script>
+    const cartItemsContainer = document.getElementById("cart-items");
+    const grandTotalEl = document.getElementById("grand-total");
+
+    function loadCart() {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = "<p class='text-center'>Your cart is empty.</p>";
+        grandTotalEl.textContent = "0";
+        return;
+      }
+
+      let total = 0;
+
+      cartItemsContainer.innerHTML = cart.map(item => {
+        const itemTotal = parseInt(item.price.replace("₹", "")) * item.qty;
+        total += itemTotal;
+
+        return `
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100 shadow-sm">
+              <img src="${item.image}" class="card-img-top" alt="${item.name}">
+              <div class="card-body">
+                <h5 class="card-title">${item.name}</h5>
+                <p>${item.description}</p>
+                <p>Price: ${item.price}</p>
+                <div class="d-flex align-items-center justify-content-between">
+                  <div>
+                    <button class="btn btn-sm btn-outline-secondary" onclick="changeQty(${item.id}, -1)">−</button>
+                    <span class="mx-2">${item.qty}</span>
+                    <button class="btn btn-sm btn-outline-secondary" onclick="changeQty(${item.id}, 1)">+</button>
+                  </div>
+                  <button class="btn btn-sm btn-danger" onclick="removeItem(${item.id})">Remove</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      grandTotalEl.textContent = total;
+    }
+
+    function changeQty(id, delta) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const item = cart.find(p => p.id === id);
+      if (!item) return;
+
+      item.qty += delta;
+      if (item.qty <= 0) {
+        cart = cart.filter(p => p.id !== id);
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+      loadCart();
+    }
+
+    function removeItem(id) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart = cart.filter(p => p.id !== id);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      loadCart();
+    }
+
+    // Load on page open
+    loadCart();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+.navbar-brand img {
+  height: 30px;
+  object-fit: contain;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fffbe6;
+  color: #333;
+}
+h1, h2, h4 {
+  color: #d2691e;
+}
+.hero {
+  background-color: #ffe0b2;
+}
+footer {
+  background-color: #f0f0f0;
+}
+html {
+  scroll-behavior: smooth;
+}
+.cat-icon {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #f8f8f8;
+  padding: 10px;
+}
+
+/* Hover effect */
+.category-item:hover .cat-icon {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  background-color: #fff;
+}
+.bann {
+  height: 400px;
+  width: 70%;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.bann:hover {
+  transform: scale(1.01);
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .bann {
+    height: 180px;
+    border-radius: 12px;
+  }
+}
+.product-img {
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+/* Make cards same height */
+.card.h-100 {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Optional: fix button to bottom */
+.card .btn {
+  margin-top: auto;
+}
