@@ -20,10 +20,10 @@ html {
   scroll-behavior: smooth;
 }
 .cat-icon {
-  width: 120px;
-  height: 120px;
+  width: 70px;
+  height: 70px;
   object-fit: contain;
-  border-radius: 12px;
+  border-radius: 7px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   background-color: #f8f8f8;
   padding: 10px;
@@ -32,7 +32,7 @@ html {
 /* Hover effect */
 .category-item:hover .cat-icon {
   transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
   background-color: #fff;
 }
 .bann {
